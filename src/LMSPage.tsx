@@ -29,7 +29,7 @@ interface Question {
 
 interface VideoData {
   id: string;
-  title:string;
+  title: string;
   url: string;
   questions: Question[];
 }
@@ -43,7 +43,12 @@ const dummyData: VideoData[] = [
       {
         type: "mcq",
         question: "What does HTML stand for?",
-        options: ["HyperText Markup Language", "HyperTool Markup Language", "HomeTool Markup Language", "HyperText Management Language"],
+        options: [
+          "HyperText Markup Language",
+          "HyperTool Markup Language",
+          "HomeTool Markup Language",
+          "HyperText Management Language",
+        ],
       },
       {
         type: "mcq",
@@ -52,8 +57,14 @@ const dummyData: VideoData[] = [
       },
       {
         type: "mcq",
-        question: "What is the correct syntax for embedding a JavaScript file in HTML?",
-        options: ["<script src='file.js'>", "<js src='file.js'>", "<script file='file.js'>", "<javascript src='file.js'>"],
+        question:
+          "What is the correct syntax for embedding a JavaScript file in HTML?",
+        options: [
+          "<script src='file.js'>",
+          "<js src='file.js'>",
+          "<script file='file.js'>",
+          "<javascript src='file.js'>",
+        ],
       },
       {
         type: "mcq",
@@ -75,16 +86,28 @@ const dummyData: VideoData[] = [
       {
         type: "mcq",
         question: "What does CSS stand for?",
-        options: ["Cascading Style Sheets", "Creative Style Sheets", "Colorful Style Sheets", "Cascading Script Sheets"],
+        options: [
+          "Cascading Style Sheets",
+          "Creative Style Sheets",
+          "Colorful Style Sheets",
+          "Cascading Script Sheets",
+        ],
       },
       {
         type: "mcq",
-        question: "Which property is used to change the background color in CSS?",
-        options: ["background-color", "color-background", "bg-color", "background"],
+        question:
+          "Which property is used to change the background color in CSS?",
+        options: [
+          "background-color",
+          "color-background",
+          "bg-color",
+          "background",
+        ],
       },
       {
         type: "mcq",
-        question: "Which CSS property is used to change the font of an element?",
+        question:
+          "Which CSS property is used to change the font of an element?",
         options: ["font-family", "font-style", "text-font", "typeface"],
       },
       {
@@ -106,8 +129,14 @@ const dummyData: VideoData[] = [
     questions: [
       {
         type: "mcq",
-        question: "What is the correct syntax for creating a function in JavaScript?",
-        options: ["function myFunction()", "function:myFunction()", "create function myFunction()", "myFunction() = function"],
+        question:
+          "What is the correct syntax for creating a function in JavaScript?",
+        options: [
+          "function myFunction()",
+          "function:myFunction()",
+          "create function myFunction()",
+          "myFunction() = function",
+        ],
       },
       {
         type: "mcq",
@@ -116,12 +145,19 @@ const dummyData: VideoData[] = [
       },
       {
         type: "mcq",
-        question: "Which method is used to write text to the console in JavaScript?",
-        options: ["console.log()", "log.console()", "console.write()", "log.write()"],
+        question:
+          "Which method is used to write text to the console in JavaScript?",
+        options: [
+          "console.log()",
+          "log.console()",
+          "console.write()",
+          "log.write()",
+        ],
       },
       {
         type: "mcq",
-        question: "Which operator is used to assign a value to a variable in JavaScript?",
+        question:
+          "Which operator is used to assign a value to a variable in JavaScript?",
         options: ["=", "==", "===", ":="],
       },
       {
@@ -139,38 +175,63 @@ const dummyData: VideoData[] = [
       {
         type: "mcq",
         question: "What is React?",
-        options: ["A JavaScript library for building user interfaces", "A JavaScript framework", "A JavaScript tool for mobile apps", "None of the above"],
+        options: [
+          "A JavaScript library for building user interfaces",
+          "A JavaScript framework",
+          "A JavaScript tool for mobile apps",
+          "None of the above",
+        ],
       },
       {
         type: "mcq",
-        question: "Which of the following is used to create a component in React?",
-        options: ["function component()", "React.createComponent()", "React.Component()", "class component()"],
+        question:
+          "Which of the following is used to create a component in React?",
+        options: [
+          "function component()",
+          "React.createComponent()",
+          "React.Component()",
+          "class component()",
+        ],
       },
       {
         type: "mcq",
         question: "What is JSX in React?",
-        options: ["A syntax extension for JavaScript", "A JavaScript library", "A styling method", "A tool for debugging"],
+        options: [
+          "A syntax extension for JavaScript",
+          "A JavaScript library",
+          "A styling method",
+          "A tool for debugging",
+        ],
       },
       {
         type: "mcq",
         question: "How do you pass data to a component in React?",
-        options: ["Using props", "Using states", "Using variables", "Using functions"],
+        options: [
+          "Using props",
+          "Using states",
+          "Using variables",
+          "Using functions",
+        ],
       },
       {
         type: "mcq",
-        question: "Which hook is used to handle state in functional components in React?",
+        question:
+          "Which hook is used to handle state in functional components in React?",
         options: ["useState", "useEffect", "useReducer", "useContext"],
       },
     ],
   },
 ];
 
-
 function LMSPage() {
   const [answers, setAnswers] = useState<Answers>({});
-  const [isSubmitted, setIsSubmitted] = useState<{ [videoId: string]: boolean }>({});
+  const [isSubmitted, setIsSubmitted] = useState<{
+    [videoId: string]: boolean;
+  }>({});
   const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
-  const [isAssessmentStarted, setIsAssessmentStarted] = useState<{ [videoId: string]: boolean }>({});
+  const [isAssessmentStarted, setIsAssessmentStarted] = useState<{
+    [videoId: string]: boolean;
+  }>({});
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -184,7 +245,11 @@ function LMSPage() {
     }
   }, [currentVideoIndex, answers]);
 
-  const handleAnswerChange = (videoId: string, questionIndex: number, value: string) => {
+  const handleAnswerChange = (
+    videoId: string,
+    questionIndex: number,
+    value: string
+  ) => {
     setAnswers((prev) => ({
       ...prev,
       [videoId]: {
@@ -262,15 +327,17 @@ function LMSPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-8">Lecture's Assessments</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">
+          Lecture's Assessments
+        </h1>
 
         <div className="mb-12">
           <div className="flex justify-center mb-6">
             <YouTube
               videoId={video.url}
               opts={{
-                width: "640",
-                height: "360",
+                width: "100%",
+                height: "350px",
                 playerVars: {
                   modestbranding: 1,
                   controls: 1,
@@ -279,7 +346,7 @@ function LMSPage() {
                   autoplay: 0,
                 },
               }}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5"
             />
           </div>
 
@@ -299,10 +366,14 @@ function LMSPage() {
             </div>
           ) : (
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold mb-4">Questions for Lecture of :  {video.title}</h3>
+              <h3 className="text-2xl font-semibold mb-4">
+                Questions for Lecture of : {video.title}
+              </h3>
               {video.questions.map((question, qIndex) => (
                 <div key={qIndex} className="mb-6">
-                  <p className="text-lg font-medium mb-2">{question.question}</p>
+                  <p className="text-lg font-medium mb-2">
+                    {question.question}
+                  </p>
                   {question.type === "mcq" && (
                     <div className="space-y-2">
                       {question.options?.map((option, oIndex) => (
@@ -311,8 +382,12 @@ function LMSPage() {
                             type="radio"
                             name={`question-${video.id}-${qIndex}`}
                             value={option}
-                            checked={videoAnswers[`${video.id}-${qIndex}`] === option}
-                            onChange={() => handleAnswerChange(video.id, qIndex, option)}
+                            checked={
+                              videoAnswers[`${video.id}-${qIndex}`] === option
+                            }
+                            onChange={() =>
+                              handleAnswerChange(video.id, qIndex, option)
+                            }
                             disabled={videoAssessmentCompleted}
                             className="mr-2"
                           />
@@ -347,7 +422,9 @@ function LMSPage() {
                 </div>
               ) : (
                 <div className="text-center mt-6">
-                  <p className="text-lg font-semibold text-green-600">Assessment completed for Video {video.id}</p>
+                  <p className="text-lg font-semibold text-green-600">
+                    Assessment completed for Video {video.id}
+                  </p>
                 </div>
               )}
             </div>

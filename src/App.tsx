@@ -1,5 +1,5 @@
 
-import LMSPage from './LMSPage'
+import LMSPage from './LMSPage.tsx'
 import './index.css'
 
 function App() {
