@@ -1,16 +1,14 @@
-import { Outlet } from "react-router-dom"
-import { ThemeProvider } from "./components/theme-provider"
-
+import { useState } from 'react'
+import LMSPage from './LMSpage'
+import './index.css'
 
 function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <ThemeProvider  defaultTheme="dark" storageKey="vite-ui-theme">
-    <main>
-      <Outlet/>
-    </main>
-    </ThemeProvider>
-
+    <>
+      <LMSPage/>
+    </>
   )
 }
 
